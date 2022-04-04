@@ -1,14 +1,15 @@
-<?php /**
+<?php
+/**
  * Plugin Name: acf-oik-blocks
  * Plugin URI: https://www.oik-plugins.com/oik-plugins/acf-oik-blocks
 Description: Playing with ACF blocks with oik
-Version: 0.0.0
+Version: 0.0.1
 Author: bobbingwide
 Author URI: https://www.bobbingwide.com/about-bobbing-wide
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Copyright 2019 Bobbing Wide (email : herb@bobbingwide.com )
+Copyright 2019, 2022 Bobbing Wide (email : herb@bobbingwide.com )
 
 This program is free software; you can redistribute it and/or modify
 it under the terms of the GNU General Public License version 2,
@@ -44,13 +45,20 @@ function acf_oik_blocks_init() {
 		'keywords'          => array( 'block', 'count', 'acf' ),
 	));
 
+	$args = [ 'name' => 'paypal',
+	          'title' => __('PayPal', 'act-oik-blocks'),
+	          'description' => 'PayPal button for WordPress with ACF',
+	          'render_callback'   => 'acf_oik_blocks_paypal',
+	];
 
+	$ok = acf_register_block( $args );
+	//print_r( $ok );
 
 }
 
 /**
  *
-* @param   array $block The block settings and attributes.
+ * @param   array $block The block settings and attributes.
  * @param   string $content The block inner HTML (empty).
  * @param   bool $is_preview True during AJAX preview.
  * @param   (int|string) $post_id The post ID this block is saved to.
@@ -60,4 +68,16 @@ function acf_oik_blocks_callback( $block, $content, $is_preview, $post_id  ) {
 	echo "Block count: ";
 	$block_count = get_field( '_block_count', $post_id );
 	echo $block_count;
+}
+
+/**
+ *
+ * @param   array $block The block settings and attributes.
+ * @param   string $content The block inner HTML (empty).
+ * @param   bool $is_preview True during AJAX preview.
+ * @param   (int|string) $post_id The post ID this block is saved to.
+ */
+function acf_oik_blocks_paypal( $block, $content, $is_preview, $post_id  ) {
+	bw_trace2();
+	echo "PayPal";
 }
