@@ -1,0 +1,139 @@
+[
+    {
+        "key": "group_624b1f0e6d0bd",
+        "title": "PayPal",
+        "fields": [
+            {
+                "key": "field_624b1f22a571f",
+                "label": "Type",
+                "name": "type",
+                "type": "select",
+                "instructions": "select button type",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "choices": {
+                    "pay": "Pay Now",
+                    "buy": "Buy Now",
+                    "donate": "Donate",
+                    "add": "Add to Cart",
+                    "view": "View Cart \/ Checkout"
+                },
+                "default_value": "Pay Now",
+                "allow_null": 0,
+                "multiple": 0,
+                "ui": 0,
+                "return_format": "value",
+                "ajax": 0,
+                "placeholder": ""
+            },
+            {
+                "key": "field_624be3810117c",
+                "label": "Amount",
+                "name": "amount",
+                "type": "number",
+                "instructions": "Specify the price",
+                "required": 1,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "min": "",
+                "max": "",
+                "step": ""
+            },
+            {
+                "key": "field_624be4850117d",
+                "label": "Product Name",
+                "name": "product_name",
+                "type": "text",
+                "instructions": "Specify the product",
+                "required": 1,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "maxlength": ""
+            },
+            {
+                "key": "field_624be5010117e",
+                "label": "Product SKU",
+                "name": "product_sku",
+                "type": "text",
+                "instructions": "Specify the Product SKU",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "maxlength": ""
+            },
+            {
+                "key": "field_624be51a0117f",
+                "label": "Shipping Address Required",
+                "name": "shipping_address_required",
+                "type": "select",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "choices": [
+                    "Prompt for an address, but do not require one",
+                    "Do not prompt for an address",
+                    "Prompt for an address, and require one"
+                ],
+                "default_value": false,
+                "allow_null": 0,
+                "multiple": 0,
+                "ui": 0,
+                "return_format": "value",
+                "ajax": 0,
+                "placeholder": ""
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "block",
+                    "operator": "==",
+                    "value": "acf\/paypal"
+                }
+            ]
+        ],
+        "menu_order": 0,
+        "position": "normal",
+        "style": "default",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "hide_on_screen": "",
+        "active": true,
+        "description": "",
+        "show_in_rest": 0
+    }
+]
