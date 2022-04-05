@@ -49,6 +49,9 @@ function acf_oik_blocks_init() {
 	          'title' => __('PayPal', 'act-oik-blocks'),
 	          'description' => 'PayPal button for WordPress with ACF',
 	          'render_callback'   => 'acf_oik_blocks_paypal',
+			'icon' => 'money',
+		'category' => 'widget',
+		'keywords' => ['payment', 'acf', 'oik' ]
 	];
 
 	$ok = acf_register_block( $args );
@@ -57,6 +60,7 @@ function acf_oik_blocks_init() {
 }
 
 /**
+ * Displays the Block Count field for the current post.
  *
  * @param   array $block The block settings and attributes.
  * @param   string $content The block inner HTML (empty).
@@ -71,6 +75,13 @@ function acf_oik_blocks_callback( $block, $content, $is_preview, $post_id  ) {
 }
 
 /**
+ * PayPal block
+ *
+ * This code uses oik's [paypal] shortcode to do the heavy lifting.
+ * This function gets the value of each field from the block
+ * and passes it to the shortcode.
+ * The shortcode generates the HTML, which is echoed by this function.
+ *
  *
  * @param   array $block The block settings and attributes.
  * @param   string $content The block inner HTML (empty).
@@ -79,5 +90,18 @@ function acf_oik_blocks_callback( $block, $content, $is_preview, $post_id  ) {
  */
 function acf_oik_blocks_paypal( $block, $content, $is_preview, $post_id  ) {
 	bw_trace2();
-	echo "PayPal";
+	bw_backtrace();
+	//echo "PayPal";
+	//print_r( $block );
+	//print_r( $content );
+	oik_require( 'shortcodes/oik-paypal.php');
+	$atts = [];
+	$atts['type'] = get_field( 'type');
+	$atts['amount'] = get_field( 'amount');
+	$atts['productname'] = get_field('product_name');
+	$atts['sku'] = get_field( 'product_sku');
+	$atts['shipadd'] = get_field( 'shipping_address_required');
+	//print_r( $atts );
+	$html = bw_pp_shortcodes( $atts );
+	echo $html;
 }
